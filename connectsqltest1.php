@@ -1,7 +1,11 @@
 <?php
+$filename ="sql/addressf_project.sql"
+
 $servername = "localhost";
-$username = "addressf";
-$password = "doingning2016";
+
+$username = "root";
+
+$password = "";
 $db_name="addressf_project";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password , $db_name  ) or die("fail to connection");
