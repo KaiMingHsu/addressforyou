@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+<title>Carousel Template for Bootstrap</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+
+
+<script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vendor/holder.min.js"></script>
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+<link href="css/hover.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+
+<!--start-->
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+
+
+
+<!--end-->
+<link rel="stylesheet" href="css/project.css">
+ 
+<link rel="stylesheet" href="css/color.css">
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2zQ2kVsLsIMoMbY3T53_0yzb9jgysVRA&libraries=places&callback=initMap"async defer></script>
+<!-- test part --> 
+
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+        	anchors:['content1','content2','content3'],
+        	menu:'#sidebar-wrapper'});
+    });
+
+
+
+/*
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+				menu: '#menu',
+
+				//equivalent to jQuery `easeOutBack` extracted from http://matthewlein.com/ceaser/
+				easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
+			});
+
+		});
+	*/
+</script>
+<style>
+ 
+ #wrapper {
+padding-left: 0;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+overflow: hidden;
+}
+ 
+#wrapper.toggled {
+padding-left: 250px;
+overflow: scroll;
+}
+ 
+#sidebar-wrapper {
+z-index: 1000;
+position: absolute; 
+left: 250px;
+width: 0;
+height: 100%;
+margin-left: -250px;
+overflow-y: auto;
+background: #000;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+padding-top: 115px
+}
+#wrapper.toggled #sidebar-wrapper {
+width: 250px;
+}
+ 
+#page-content-wrapper {
+position: absolute;
+padding: 15px;
+width: 100%;  
+overflow-x:hidden; 
+}
+.xyz{
+min-width: 360px;
+}
+#wrapper.toggled #page-content-wrapper {
+position: relative;
+margin-right: 0px; 
+}
+.fixed-brand{
+width: auto;
+}
+/* Sidebar Styles */
+ 
+.sidebar-nav {
+position: absolute;
+top: 0;
+width: 250px;
+margin: 0;
+padding: 0;
+list-style: none;
+margin-top: 2px;
+}
+ 
+.sidebar-nav li {
+text-indent: 15px;
+line-height: 40px;
+}
+ 
+.sidebar-nav li a {
+display: block;
+text-decoration: none;
+color: #999999;
+}
+ 
+.sidebar-nav li a:hover {
+text-decoration: none;
+color: #fff;
+background: rgba(255,255,255,0.2);
+border-left: red 2px solid;
+}
+ 
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+text-decoration: none;
+}
+ 
+.sidebar-nav > .sidebar-brand {
+height: 65px;
+font-size: 18px;
+line-height: 60px;
+}
+ 
+.sidebar-nav > .sidebar-brand a {
+color: #999999;
+}
+ 
+.sidebar-nav > .sidebar-brand a:hover {
+color: #fff;
+background: none;
+}
+.no-margin{
+margin:0;
+}
+ 
+@media(min-width:768px) {
+#wrapper {
+padding-left: 250px;
+}
+.fixed-brand{
+width: 250px;
+}
+#wrapper.toggled {
+padding-left: 0;
+}
+ 
+#sidebar-wrapper {
+width: 250px;
+}
+ 
+#wrapper.toggled #sidebar-wrapper {
+width: 250px;
+}
+#wrapper.toggled-2 #sidebar-wrapper {
+width: 50px;
+}
+#wrapper.toggled-2 #sidebar-wrapper:hover {
+width: 250px;
+}
+ 
+ 
+#page-content-wrapper {
+padding: 20px;
+position: relative;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+ 
+#wrapper.toggled #page-content-wrapper {
+position: relative;
+margin-right: 0;
+padding-left: 250px;
+}
+#wrapper.toggled-2 #page-content-wrapper {
+position: relative;
+margin-right: 0;
+margin-left: -200px;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+width: auto;
+ 
+}
+}
+</style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-default no-margin navbar-fixed-top" >
+<div class="container-fluid">
+
+<div class="collapse navbar-collapse" >
+<div class="navbar-header">
+
+<a href="index.html
+" class="navbar-brand" id="brand">Address For You</a>
+</div>
+
+
+<ul class="nav navbar-nav navbar-right">
+<li><a class="btn hvr-pop "href="index.html"><h4>首頁</h4></a></li>
+<li><a href="p1.html" class=" hvr-pop"><h4>研究動機</h4></a></li>
+<li class="dropdown">
+
+<a href="#" class="dropdown-toggle hvr-pop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><h4>研究方法<span class="caret"></span></h4></a>
+
+<ul class="dropdown-menu multi-level " role="menu" aria-labelledby="dropdownMenu">
+<li>
+<a href="p2_1.html" ><h4>研究流程</h4></a>
+</li>
+
+<li class="dropdown-submenu"><a tabindex="-1" href="#"><h4>研究理論</h4></a>
+<ul class="dropdown-menu ">
+ <li><a tabindex="-1" href="p2_21.html"><h4>資料集合併</h4></a></li>
+ <li><a tabindex="-1" href="p2_22.html"><h4>自變數加權</h4></a></li>
+ <li><a tabindex="-1" href="p2_23.html"><h4>空間分析</h4></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="p3.html" class="hvr-pop"><h4>資料來源</h4></a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div id="wrapper">
+<!-- Sidebar -->
+
+
+<ul id="sidebar-wrapper" class="nav nav-stacked affix">
+            <li   data-menuanchor="content1">
+            	<a href="#content1"   data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span> 推薦的營業項目</a>
+</li>
+            <li data-menuanchor="content2" ><a href="#content2"    data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span> 商圈性質</a></li>
+            <li data-menuanchor="content3"><a href="#content3"  data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span>租金情況</a></li>
+ 
+ </ul>
+<!--
+<div id="sidebar-wrapper" class=" nav nav-stacked affix">
+<ul class="sidebar-nav nav-pills nav-stacked active" id="menu" role="tablist">
+
+<li class="active" data-menuanchor="content1">
+<a href="#content1" aria-controls="content1"  data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span> 推薦的營業項目</a>
+
+</li>
+<li data-menuanchor="content2">
+<a href="#content2"  aria-controls ="content2"  data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span> 商圈性質</a>
+<ul class="nav-pills nav-stacked" style="list-style-type: none; display: none;">
+</ul>
+</li>
+<li data-menuanchor="content3">
+<a href="#content3" aria-controls ="content3"  data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span>租金情況</a>
+</li>
+<li>
+
+
+</ul>
+
+
+</div>
+-->
+<!-- /#sidebar-wrapper -->
+
+
+<!-- Page Content -->
+<div id="page-content-wrapper" >
+<div class="container-fluid xyz">
+<div class="row">
+<div class="col-lg-12">
+<!--  result  main content start --> 
+<div id="fullpage" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+
+    <div role="tabpanel" class="tab-pane active section" id="section0" data-anchor="content1"><div class="fp-tableCell" style="height: 100%;">
+	<h1>content1</h1>
+	</div></div>
+
+    <div role="tabpanel" class="tab-pane section" id="section1" data-anchor="content2"><div class="fp-tableCell" style="height: 100%;">
+	<h1>content2</h1>
+	</div></div>
+
+    <div role="tabpanel" class="tab-pane section" id="section2" data-anchor="content3"><div class="fp-tableCell" style="height: 100%;">
+	<h1>content3</h1>
+	</div>
+</div>
+
+  </div>
+
+
+
+
+
+<!--  result  main content end--> 
+
+</div>
+</div>
+</div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+
+
+</body>
+</html>

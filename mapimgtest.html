@@ -1,0 +1,47 @@
+
+<html>
+  <head>
+    <!-- This stylesheet contains specific styles for displaying the map
+         on this page. Replace it with your own styles as described in the
+         documentation:
+         https://developers.google.com/maps/documentation/javascript/tutorial -->
+    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+    <style type="text/css">
+     #map { height: 100%; }
+     html, body { height: 100%; margin: 0; padding: 0; }
+     </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    
+    <script>
+//E33c43 
+//fa646b
+//fc8d92
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center:{
+lat:25.033679, lng:121.44096},
+zoom: 13,
+ mapTypeId: google.maps.MapTypeId.ROADMAP,
+ styles:[{"featureType":"road","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"administrative","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"weight":2.5}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"weight":3.0}]},{"featureType":"landscape","stylers":[{"color":"#fc8d92"}]},
+ {"featureType":"landscape.natural","elementType": "geometry.fill","stylers":[{"color":"#ffffff"}]}, {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },{"weight":1}
+        ]
+    },{"featureType":"transit","stylers":[{"visibility":"off"}]},{"elementType":"labels","stylers":[{"visibility":"off"}]},{"elementType":"labels.text","stylers":[{"visibility":"0ff"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#E33C43"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#fff"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]}]
+            
+        });
+      }
+
+    </script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2zQ2kVsLsIMoMbY3T53_0yzb9jgysVRA&libraries=places&callback=initMap"async defer></script>
+
+  </body>
+</html>
+
+

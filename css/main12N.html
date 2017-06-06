@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Carousel Template for Bootstrap</title>
+
+<!-- lib start  -->
+<!-- underscore -->
+<script src="js/underscore.js"></script>
+<!-- hover -->
+<link rel="stylesheet" href="css/hover.css">
+<!-- font icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>  
+<link href='https://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+<!-- jquery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- bootstrap  -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<script src="js/bootstrap.min.js"></script>
+<!-- fullpage -->
+<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+<script src="js/jquery.easings.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+
+<!-- project -->
+<link rel="stylesheet" href="css/project.css">
+<!-- color -->
+<link rel="stylesheet" href="css/color.css">  
+<!-- lib end -->
+<script>
+var map;
+var rawdata=[];
+var url = document.location.href;
+var params1 = url.split('?')[1];
+var tep1 = params1.split('=')[1];
+rawdata[0]=tep1.split(',')[0];
+rawdata[1]=tep1.split(',')[1];
+//topjob
+var params2 = url.split('?')[2];
+var tep2 = params2.split('=')[1];
+var topdata = tep2.split(',').map(Number);
+var topjob =[] , topsum=[] ;
+for (var i = 0; i < topdata.length; i++) 
+{
+  if (i<30)
+  {
+    topjob[i] = topdata[i];
+  }else{
+    topsum [i-30] = topdata[i];
+  }
+}
+//alert(JSON.stringify(topdata));
+
+var job30 =["蔬果行","食品量販店","菸酒行","服飾店","家具店","五金行","雜貨店","模具業","水電行","清潔用品店","美妝店","藥局","文具店","建材零售業","電器行(家電行)","電腦硬體零件","通訊設備行","生產線加工器具零售店","其他機械器具零售業 ","機車行","汽機車零件行","輪胎行","銀樓","電腦軟體零售店","電子零件行","便利商店業","飲料店","餐廳","器材租賃店","美容、美髮店"];
+var idv1 = document.getElementById('v1');
+
+/*
+ranO.sort( function() { return 0.5 - Math.random() } );
+
+window.onload=function(){
+for (i = 1; i < 31; i++){
+  var v='top top'+i;
+  v=document.getElementById(v);
+  v.innerHTML='<span style="font-size:20px;">'+ranO[i-1]+'業'+'</span>';
+}
+
+}
+<div class="btn-group">
+<button type="button" class="btn btn-top " id="top top5"></button>
+</div>
+*/
+
+
+    /*
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var labelIndex = 0;
+var url = document.location.href;
+var data={'lat':'','lng':''};
+    var params1 = url.split('?')[1].split('&');
+    var params2 =url.split('?')[2].split('&');
+    var params3 =[decodeURIComponent(url.split('?')[3].split('&'))];
+   */
+
+    function initMap() {
+    var current_position= {lat:parseFloat(rawdata[0]),lng:parseFloat(rawdata[1])};
+     var map = new google.maps.Map(document.getElementById('map'), {
+        center:current_position,
+        zoom: 15
+    });
+
+     var marker = new google.maps.Marker({
+    position: current_position,
+    map: map,
+
+  });
+      marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+  var circle = new google.maps.Circle({
+  map: map,
+  center: current_position,
+  strokeColor: '#FF0000',
+  strokeOpacity: 0.75,
+  strokeWeight: 1,
+  radius:500,   //unit metres 
+  fillColor: '#AA0000',
+  fillOpacity: 0.10,
+});
+}
+</script>
+<!-- google map api -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2zQ2kVsLsIMoMbY3T53_0yzb9jgysVRA&libraries=places&callback=initMap"
+    async defer></script>
+<script>
+// maincontent control
+$(document).ready(function() {
+$('#fullpage').fullpage({
+anchors:['content1','content2','content3'],
+menu:'#sidebar-wrapper'});
+});
+
+</script>
+    <style>
+    #map ,#map2{
+    height: 400px;
+    width :100%;
+    }
+    </style>
+
+</head>
+<body>
+  <!-- main bar start  -->
+<nav class="navbar navbar-default no-margin navbar-fixed-top" id = "mainbar">
+<div class="container-fluid">
+
+<div class="collapse navbar-collapse" >
+<div class="navbar-header">
+
+<a href="index.html
+" class="navbar-brand" id="brand">Address For You</a>
+</div>
+
+
+<ul class="nav navbar-nav navbar-right">
+<li><a class="btn hvr-pop "href="index.html"><h4>首頁</h4></a></li>
+<li><a href="p1.html" class=" hvr-pop"><h4>研究動機</h4></a></li>
+<li class="dropdown">
+
+<a href="#" class="dropdown-toggle hvr-pop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><h4>研究方法<span class="caret"></span></h4></a>
+
+<ul class="dropdown-menu multi-level " role="menu" aria-labelledby="dropdownMenu">
+<li>
+<a href="p2_1.html" ><h4>研究流程</h4></a>
+</li>
+
+<li class="dropdown-submenu"><a tabindex="-1" href="#"><h4>研究理論</h4></a>
+<ul class="dropdown-menu ">
+ <li><a tabindex="-1" href="p2_21.html"><h4>資料集合併</h4></a></li>
+ <li><a tabindex="-1" href="p2_22.html"><h4>自變數加權</h4></a></li>
+ <li><a tabindex="-1" href="p2_23.html"><h4>空間分析</h4></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="p3.html" class="hvr-pop"><h4>資料來源</h4></a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div id="wrapper">
+<!-- Sidebar -->
+<ul id="sidebar-wrapper" class="nav nav-stacked affix">
+<li   data-menuanchor="content1">
+<a href="#content1"   data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span> 推薦的營業項目</a>
+</li>
+<li data-menuanchor="content2" ><a href="#content2"data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span> 商圈性質</a></li>
+<li data-menuanchor="content3"><a href="#content3"  data-toggle="tab"><span class="fa-stack fa-lg pull-left"></span>租金情況</a></li>
+ 
+ </ul>
+<div id="page-content-wrapper" >
+<div class="container-fluid xyz">
+<div class="row">
+<div class="col-lg-12">
+<!--  result  main content start --> 
+<div id="fullpage" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+
+<div role="tabpanel" class="tab-pane active section" id="section0" data-anchor="content1">
+<div class="fp-tableCell" style="height: 100%;">
+<div class="container">
+<!-- recommend1 -->
+
+<div class="row" id ="recommend1">  
+<div class="col-lg-6">
+<div id="map"></div>
+</div>
+<div class="col-lg-4">
+    <p class="location_r" id="note">
+    <span class="colorBox" style="background-color: #ff7400;"></span>&nbsp;推薦
+    <span class="colorBox" style="background-color: #959595;"></span>&nbsp;不推薦
+   </p>
+<!-- visualize 1  ------------------------------------------------- -->
+<div id="v1">
+loading
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane section" id="section1" data-anchor="content2"><div class="fp-tableCell" style="height: 100%;">
+<h1>content2</h1>
+</div>
+</div>
+
+<div role="tabpanel" class="tab-pane section" id="section2" data-anchor="content3"><div class="fp-tableCell" style="height: 100%;">
+<h1>content3</h1>
+</div>
+</div>
+ </div>
+<!--  result  main content end--> 
+</div></div></div></div>
+<!-- /#page-content-wrapper -->
+</div>
+
+<script>
+j=0;
+for (var i = topjob.length - 1; i >= 0; i--) {
+    if(topjob[i]  ==1 ) 
+    {
+      /*
+      idv1.innerHTML = '<div class="btn-group"><button type="button" class="btn btn-top "><span style="font-size:20px;">'+job30[i]+'</span></button></div>';
+    */if(j== 0){
+       $("#v1").html( '<div class="btn-group"><button type="button" class="btn btn-top "><span style="font-size:14px;">'+job30[i]+'</span></button></div>');
+       j=1;
+       job30.splice(i,1);
+      }else {
+        $("#v1").append('&nbsp;<div class="btn-group"><button type="button" class="btn btn-top "><span style="font-size:14px;">'+job30[i]+'</span></button></div>');
+       job30.splice(i,1);
+      }
+    }
+  };
+for (var i = 0; i < job30.length; i++) {
+       $("#v1").append('&nbsp;<div class="btn-group"><button type="button" class="btn"><span style="font-size:14px;">'+job30[i]+'</span></button></div>')
+};
+</script>
+</body>
+</html>

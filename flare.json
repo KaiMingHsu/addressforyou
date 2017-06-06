@@ -1,0 +1,174 @@
+ {
+ "name": "root",
+ "children": [
+ {
+   "name": "零售",
+   "children": [
+    {
+      "name": "農產品",
+      "size": 3
+    },
+    {
+      "name": "食品什貨",
+      "size": 40
+    },
+    {
+      "name": "菸酒",
+      "size": 6
+    },
+    {
+      "name": "服飾",
+      "size": 34
+    }	]
+ },
+{
+ "name": "家具五金",
+   "children": [
+    {
+      "name": "家具",
+      "size": 3
+    },
+    {
+      "name": "五金",
+      "size": 1
+    },
+    {
+      "name": "日用品",
+      "size": 16
+    }   
+	]
+  },
+  {
+	"name": "模具水器",
+   "children": [
+   {
+      "name": "模具",
+      "size": 2
+    },
+    {
+      "name": "水電行",
+      "size": 3
+    }
+   ]
+  },
+  {
+	"name": "藥妝",
+   "children": [
+    {
+      "name": "清潔用品",
+      "size": 5
+    },
+    {
+      "name": "化粧品",
+      "size": 16
+    },
+    {
+      "name": "成藥",
+      "size": 20
+    }
+   ]
+  },
+  {
+	"name": "雜類",
+   "children": [
+       {
+      "name": "樂器",
+      "size": 25
+    },
+    {
+      "name": "建材",
+      "size": 2
+    },
+    {
+      "name": "首飾",
+      "size": 3
+    }
+   ]
+  },
+  {
+	"name": "3C",
+   "children": [
+   {
+      "name": "電器",
+      "size": 1
+    },
+    {
+      "name": "電腦",
+      "size": 30
+    },
+    {
+      "name": "電信",
+      "size": 13
+    },
+	{
+      "name": "資訊軟體",
+      "size": 6
+    },
+    {
+      "name": "電子材料",
+      "size": 15
+    }
+   ]
+  },
+  {
+	"name": "機械",
+   "children": [
+   {
+      "name": "機械器具",
+      "size": 14
+    },
+    {
+      "name": "其他機械",
+      "size": 1
+    }
+   ]
+  },
+  {
+	"name": "汽機車",
+   "children": [
+   {
+      "name": "機車",
+      "size": 2
+    },
+    {
+      "name": "汽機車零件",
+      "size": 5
+    },
+    {
+      "name": "車胎",
+      "size": 7
+    }
+   ]
+  },
+  {
+	"name": "吃喝",
+   "children": [
+   {
+      "name": "便利商店",
+      "size": 25
+    },
+    {
+      "name": "飲料店",
+      "size": 20
+    },
+    {
+      "name": "餐館",
+      "size": 35
+    }
+   ]
+  },
+  {
+	"name": "服務",
+   "children": [
+       {
+      "name": "租賃",
+      "size": 2
+    },
+    {
+      "name": "美容美髮",
+      "size": 5
+    }
+  ]
+  }
+  ]
+ }

@@ -1,0 +1,127 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Address for you!</title><!--Ryao-->
+<!-- lib start  -->
+<!-- underscore -->
+<script src="js/underscore.js"></script>
+<!-- hover -->
+<link rel="stylesheet" href="css/hover.css">
+<!-- font icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>  
+<link href='https://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+<!-- jquery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- d3 -->
+<script src="d3.v3.min.js"></script>
+<!-- bootstrap  -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<script src="js/bootstrap.min.js"></script>
+<!-- fullpage -->
+<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+<script src="js/jquery.easings.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+
+<!-- project -->
+<link rel="stylesheet" href="css/project.css">
+<!-- color -->
+<link rel="stylesheet" href="css/color.css">  
+<!-- lib end -->
+
+<style>
+
+.full-width {
+width: 100%;
+}
+@media (max-width: 500px) {
+#map{
+width:100%;
+}
+.h1,h1{
+font-size:18px;
+}
+.li {
+	font-size: 30px
+}
+}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-default no-margin navbar-fixed-top" id = "mainbar">
+<div class="container-fluid">
+
+<div class="collapse navbar-collapse" >
+<div class="navbar-header">
+<a href="index.html"><img src="pic/head.png" border="0" height="110px"></a><!--Ryao0824-->
+
+</div>
+
+
+<ul class="nav navbar-nav navbar-right">
+<li><a class="btn hvr-pop "href="index.html"><h4>首頁</h4></a></li>
+<li><a href="p1.html" class=" hvr-pop"><h4>研究動機</h4></a></li>
+<li class="dropdown">
+
+<a href="#" class="dropdown-toggle hvr-pop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><h4>研究方法<span class="caret"></span></h4></a>
+
+<ul class="dropdown-menu multi-level " role="menu" aria-labelledby="dropdownMenu">
+<li>
+<a href="p2_1.html" ><h4>研究流程</h4></a>
+</li>
+
+<li class="dropdown-submenu"><a tabindex="-1" href="#"><h4>研究理論</h4></a>
+<ul class="dropdown-menu ">
+ <li><a tabindex="-1" href="p2_21.html"><h4>空間自相關分析</h4></a></li> <!--Ryao0902-->
+
+ <li><a tabindex="-1" href="p2_22.html"><h4>量化商圈資訊</h4></a></li> <!--Ryao0902-->
+
+ <li><a tabindex="-1" href="p2_23.html"><h4>多領域整合</h4></a></li> <!--Ryao0902-->
+ 
+ <li><a tabindex="-1" href="p2_24.html"><h4>變數權重專一化</h4></a></li> <!--Ryao0902-->
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="p3.html" class="hvr-pop"><h4>資料來源</h4></a>
+</li>
+<li><a href="p4.html" class="hvr-pop"><h4>關於我們</h4></a></li><!--Ryao0902-->
+</ul>
+
+</div>
+</div>
+</nav>
+<div id="tbody">
+		<div class="jumbotron text-center">
+        <h1>研究流程</h1>
+        <div class="separator-container">
+                   <div class="separator line-separator">∎</div>
+                            </div>
+
+       
+<!--Ryao0831始-->
+        <p class="lead" align="left">　　本研究從政府的開放資料中擷取資料，並將資料進行預處理，以便後續的計算與轉換。為了在查看店家的資料時能夠同時看到不同面向的資料，本研究將不同領域的資料庫與店家的資料庫加以整合。</p>
+    <p class="lead" align="left">　　為了量化每個店家在地理上的商圈性質，本研究接著計算店家與店家之間的距離以及店家與新莊區地標的距離，並轉換為遠近程度的變數並增加到本研究的資料庫中。</p>
+    <p class="lead" align="left">　　本研究考量到每個行業的分布情況會對開店造成一定程度的影響，在資料預處理後便能直接計算每個行業的Moran’s I值作為行業分布情況的指標，並轉換為衡量每個行業「與同業遠近程度」變數重要性的權重。</p>
+    <p class="lead" align="left">　　為了找出每個行業的關鍵因素，本研究在建立預測模型前，利用變數篩選演算法對每個變數計算重要程度並轉為權重值，再加上前一個步驟計算「與同業遠近程度」變數的權重值，建立每個行業的變數權重矩陣。</p>
+  <img src="pic/modeling.png">
+ <!--Ryao0831終-->
+        
+        </div></div>
+
+</body>
+</html>

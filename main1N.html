@@ -1,0 +1,318 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Address For You</title>
+<font face="微軟正黑體">微軟正黑體字型</font> 
+
+<link rel ="import" href="lib.html">
+
+<script>
+var map;
+var address;
+var markers;
+var marker;var geocoder;var geocoder2;
+var image = {
+url: 'beachflag.png',
+size: new google.maps.Size(20, 32),
+origin: new google.maps.Point(0, 0),
+anchor: new google.maps.Point(0, 32)
+};
+function initMap() {
+
+var triangleCoords =[{lat:25.03949351807811,lng:121.46767616271973},{lat:25.036266269632527,lng:121.46201133728027},{lat:25.03506089000065,lng:121.45922183990479},{lat:25.032883399998077,lng:121.454758644104},{lat:25.029772632953623,lng:121.45196914672852},{lat:25.024911901565094,lng:121.44789218902588},{lat:25.018689884474526,lng:121.4434289932251},{lat:25.010834137509335,lng:121.43913745880127},{lat:25.005972656239187,lng:121.43716335296631},{lat:25.002161120365894,lng:121.4370346069336},{lat:25.000333096919253,lng:121.43514633178711},{lat:24.999632995630652,lng:121.43252849578857},{lat:24.998349466241233,lng:121.43128395080566},{lat:24.996910341588716,lng:121.4307689666748},{lat:24.996579729490655,lng:121.43119812011719},{lat:24.99517948015556,lng:121.43016815185547},{lat:24.995568439904556,lng:121.42961025238037},{lat:24.99593795052583,lng:121.42973899841309},{lat:24.996463042655417,lng:121.43023252487183},{lat:24.99753266783105,lng:121.43049001693726},{lat:25.000021941283457,lng:121.43115520477295},{lat:25.000683146067637,lng:121.43089771270752},{lat:25.001791628458143,lng:121.43151998519897},{lat:25.003405716511082,lng:121.4319920539856},{lat:25.003930776728183,lng:121.43160581588745},{lat:25.004708639591467,lng:121.43074750900269},{lat:25.005817085661366,lng:121.43023252487183},{lat:25.007003306340827,lng:121.42982482910156},{lat:25.00799505582131,lng:121.42877340316772},{lat:25.008345083137833,lng:121.42765760421753},{lat:25.01027021554802,lng:121.4264988899231},{lat:25.011048038265578,lng:121.42602682113647},{lat:25.013420367127186,lng:121.42424583435059},{lat:25.01489818816838,lng:121.4239239692688},{lat:25.016687105631693,lng:121.4234733581543},{lat:25.017192664538747,lng:121.42205715179443},{lat:25.018262109213193,lng:121.42094135284424},{lat:25.01927321197422,lng:121.4185380935669},{lat:25.01917599091676,lng:121.4155125617981},{lat:25.019409321325334,lng:121.41433238983154},{lat:25.018689884474526,lng:121.41330242156982},{lat:25.018709328769184,lng:121.41207933425903},{lat:25.01937043295471,lng:121.4122724533081},{lat:25.019564874684676,lng:121.41139268875122},{lat:25.02084818237839,lng:121.41049146652222},{lat:25.020984289983225,lng:121.40969753265381},{lat:25.021003733914462,lng:121.40819549560547},{lat:25.022617569470086,lng:121.4063286781311},{lat:25.02335642686042,lng:121.40525579452515},{lat:25.023998062564768,lng:121.40418291091919},{lat:25.02493134487416,lng:121.403968334198},{lat:25.02582573376119,lng:121.40268087387085},{lat:25.026234039564386,lng:121.40143632888794},{lat:25.02699231816626,lng:121.40117883682251},{lat:25.02815889148186,lng:121.40160799026489},{lat:25.02907269949976,lng:121.40085697174072},{lat:25.030005943217677,lng:121.39832496643066},{lat:25.030705871348104,lng:121.39845371246338},{lat:25.031250257133674,lng:121.39806747436523},{lat:25.03152244912069,lng:121.39841079711914},{lat:25.03148356458808,lng:121.39877557754517},{lat:25.034905356282174,lng:121.39909744262695},{lat:25.034516521123315,lng:121.40132904052734},{lat:25.03684951358938,lng:121.40098571777344},{lat:25.041593128099265,lng:121.39102935791016},{lat:25.043614940813352,lng:121.39283180236816},{lat:25.043673261839306,lng:121.3973593711853},{lat:25.042856764951786,lng:121.39954805374146},{lat:25.043381656432114,lng:121.40053510665894},{lat:25.044159269310313,lng:121.3983678817749},{lat:25.04485911668455,lng:121.40100717544556},{lat:25.045325679381627,lng:121.40411853790283},{lat:25.044820236379632,lng:121.40639305114746},{lat:25.04427591081672,lng:121.40883922576904},{lat:25.042973407697133,lng:121.41038417816162},{lat:25.042409633400165,lng:121.410813331604},{lat:25.038871404502395,lng:121.41250848770142},{lat:25.035896880358834,lng:121.41368865966797},{lat:25.033583311713762,lng:121.41791582107544},{lat:25.03231957932333,lng:121.41757249832153},{lat:25.030550332108614,lng:121.41677856445312},{lat:25.030161483147243,lng:121.41828060150146},{lat:25.028761616683173,lng:121.4210057258606},{lat:25.029597649964444,lng:121.42158508300781},{lat:25.02957820739469,lng:121.42197132110596},{lat:25.03014204066685,lng:121.42220735549927},{lat:25.029208797984012,lng:121.42328023910522},{lat:25.029869845617544,lng:121.42564058303833},{lat:25.03010315569677,lng:121.42619848251343},{lat:25.03167798712788,lng:121.42420291900635},{lat:25.033408334159187,lng:121.42619848251343},{lat:25.035974646614175,lng:121.42866611480713},{lat:25.039201902732373,lng:121.43083333969116},{lat:25.039143579580028,lng:121.43145561218262},{lat:25.04118487341023,lng:121.43263578414917},{lat:25.038813081192878,lng:121.43664836883545},{lat:25.04299284814388,lng:121.4372706413269},{lat:25.041476484041063,lng:121.44036054611206},{lat:25.041884737759364,lng:121.44057512283325},{lat:25.04205970322259,lng:121.44201278686523},{lat:25.045811680303338,lng:121.4417552947998},{lat:25.046880875550418,lng:121.44053220748901},{lat:25.047775104415294,lng:121.44181966781616},{lat:25.049135874956402,lng:121.44203424453735},{lat:25.053256973596127,lng:121.4398455619812},{lat:25.055783993855464,lng:121.43851518630981},{lat:25.056697596048732,lng:121.43963098526001},{lat:25.057377933683306,lng:121.44102573394775},{lat:25.05899129068987,lng:121.44390106201172},{lat:25.061421005134626,lng:121.448814868927},{lat:25.061809754974774,lng:121.45074605941772},{lat:25.06394785704784,lng:121.45280599594116},{lat:25.063597988352804,lng:121.45342826843262},{lat:25.063636862701586,lng:121.45447969436646},{lat:25.065191826538413,lng:121.45583152770996},{lat:25.068729295740496,lng:121.45922183990479},{lat:25.069953780508893,lng:121.46115303039551},{lat:25.06775747371945,lng:121.46591663360596},{lat:25.066960573908812,lng:121.46587371826172},{lat:25.065347321836605,lng:121.46522998809814},{lat:25.063792359973398,lng:121.46488666534424},{lat:25.061498755201324,lng:121.46535873413086},{lat:25.058816349390565,lng:121.46746158599854},{lat:25.056600404649767,lng:121.46733283996582},{lat:25.055609047977683,lng:121.46761178970337},{lat:25.053956769038034,lng:121.46844863891602},{lat:25.052596052010266,lng:121.46868467330933},{lat:25.051040928339393,lng:121.46782636642456},{lat:25.04843605199308,lng:121.46724700927734},{lat:25.04682255605009,lng:121.46711826324463},{lat:25.04443143265267,lng:121.46610975265503},{lat:25.04324557367146,lng:121.46602392196655},{lat:25.040718294958697,lng:121.46728992462158},{lat:25.03949351807811,lng:121.46767616271973}]
+  var bermudaTriangle = new google.maps.Polygon({
+    paths: triangleCoords,
+    strokeColor: '#949494',
+    strokeOpacity: 0.2,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.1
+  });
+  
+
+
+
+geocoder = new google.maps.Geocoder();
+geocoder2= new google.maps.Geocoder();
+var uluru = {lat : 25.033679, lng : 121.44096};
+var map = new google.maps.Map(document.getElementById('map'), {
+center:{
+lat:25.033679, lng:121.44096},
+zoom: 15
+});
+  bermudaTriangle.setMap(map);
+
+
+var contentString = '<div id="content">Hello World</div>';
+var infowindow = new google.maps.InfoWindow({
+content: contentString
+});
+var marker = new google.maps.Marker({
+map: map,
+draggable: true,
+animation: google.maps.Animation.DROP,
+position: {lat: 25.033679, lng: 121.44096}
+});
+marker.addListener('click', function() {
+infowindow.open(map, marker);
+});
+
+
+google.maps.event.addListener(marker, 'dragend', function (evt) {
+
+  geocodePosition(marker.getPosition());
+});
+function geocodePosition(pos) {
+  geocoder.geocode({
+    latLng: pos
+  }, function(responses) {
+    if (responses && responses.length > 0) {
+      marker.formatted_address = responses[0].formatted_address;
+    } else {
+      marker.formatted_address = 'Cannot determine address at this location.';
+    }
+      document.getElementById('current').innerHTML = '<h3>座標(Lat,Lng):</h3><h4><b><div id="content1">' +  marker.getPosition().toUrlValue(6)+'</div></b></h4><h3><br>地址:<div id="content3">' +marker.formatted_address+'</div></h3>';
+/*
+    infowindow.setContent(marker.formatted_address + "<br>coordinates: " + marker.getPosition().toUrlValue(6)+marker.latLng.lng();
+    infowindow.open(map, marker);
+    */
+  });
+}
+
+google.maps.event.addListener(marker, 'dragstart', function (evt) {
+document.getElementById('current').innerHTML = '<h3>定位中...</h3>';
+});
+map.setCenter(marker.position);
+marker.setMap(map);
+
+/*----------------map2---------------------------*/
+var map2 = new google.maps.Map(document.getElementById('map2'),
+ {
+center:{
+lat:25.033679, lng:121.44096},
+zoom: 14
+});
+var bermudaTriangle2 = new google.maps.Polygon({
+    paths: triangleCoords,
+    strokeColor: '#949494',
+    strokeOpacity: 0.2,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.1
+  });
+  bermudaTriangle2.setMap(map2);
+
+var input = document.getElementById('pac-input');
+var searchBox = new google.maps.places.SearchBox(input);
+map2.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+map2.addListener('bounds_changed', function() {
+searchBox.setBounds(map2.getBounds());
+});
+markers=[];
+searchBox.addListener('places_changed', function() {
+var places = searchBox.getPlaces();
+
+if (places.length == 0) {
+return;
+}
+markers.forEach(function(marker) {
+marker.setMap(null);
+});
+markers = [];
+
+var bounds = new google.maps.LatLngBounds();
+places.forEach(function(place) {
+var icon = {
+url: place.icon,
+size: new google.maps.Size(71, 71),
+origin: new google.maps.Point(0, 0),
+anchor: new google.maps.Point(17, 34),
+scaledSize: new google.maps.Size(25, 25)
+};
+
+markers.push(new google.maps.Marker({
+map: map2,
+icon: icon,
+title: place.name,
+position: place.geometry.location,
+zoom:13
+}));
+
+if (place.geometry.viewport) {
+bounds.union(place.geometry.viewport);
+} else {
+bounds.extend(place.geometry.location);
+}
+
+$("#current").html("<h3>緯度:<div id=content1>" + place.geometry.location.lat().toFixed(6)+","+place.geometry.location.lng().toFixed(6)+"</div><br>地址:<div id =content3>"+place.formatted_address+"</div></h3>");
+});
+map2.fitBounds(bounds);
+
+});
+$('a[href="#menu1"]').on('shown.bs.tab', function (e) {
+initMap();
+});
+$('a[href="#home"]').on('shown.bs.tab', function (e) {
+initMap();
+});
+}
+
+var data21,data22; 
+
+var resultObj
+function Sent(){
+
+var address = content3.innerHTML.split('區')[1]; 
+lat =content1.innerHTML.split(',')[0]
+lng = content1.innerHTML.split(',')[1]
+$.ajax({
+url:'connectsql.php',
+type:'GET',
+data:{
+address:address,
+lat : lat,
+lng :lng
+},
+success:function(response){
+va4=JSON.parse(response);
+va5=JSON.stringify(va4);
+
+var content1 =$('#content1').html();
+var data21 =$.parseJSON(response);
+
+var url  ="main12N.html"+"?content1="+content1+"?"+va5+"?";
+document.location.href = url;
+}
+});
+}
+</script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2zQ2kVsLsIMoMbY3T53_0yzb9jgysVRA&libraries=places&callback=initMap" 
+async defer>
+  
+</script>
+<style>
+#map ,#map2 {
+height: 480px;
+width :100%;
+padding-bottom: 200px;
+}
+</style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default no-margin navbar-fixed-top" id = "mainbar">
+<div class="container-fluid">
+
+<div class="collapse navbar-collapse" >
+<div class="navbar-header">
+<a href="index.html"><img src="pic/head.png" border="0" height="110px"></a><!--Ryao0824-->
+</div>
+<ul class="nav navbar-nav navbar-right">
+<li><a class="btn hvr-pop "href="index.html"><h4>首頁</h4></a></li>
+<li><a href="p1.html" class=" hvr-pop"><h4>研究動機</h4></a></li>
+<li class="dropdown">
+
+<a href="#" class="dropdown-toggle hvr-pop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><h4>研究方法<span class="caret"></span></h4></a>
+
+<ul class="dropdown-menu multi-level " role="menu" aria-labelledby="dropdownMenu">
+<li>
+<a href="p2_1.html" ><h4>研究流程</h4></a>
+</li>
+
+<li class="dropdown-submenu"><a tabindex="-1" href="#"><h4>研究理論</h4></a>
+<ul class="dropdown-menu ">
+ <li><a tabindex="-1" href="p2_21.html"><h4>空間自相關分析</h4></a></li> <!--Ryao0902-->
+
+ <li><a tabindex="-1" href="p2_22.html"><h4>量化商圈資訊</h4></a></li> <!--Ryao0902-->
+
+ <li><a tabindex="-1" href="p2_23.html"><h4>多領域整合</h4></a></li> <!--Ryao0902-->
+ 
+ <li><a tabindex="-1" href="p2_24.html"><h4>變數權重專一化</h4></a></li> <!--Ryao0902-->
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="p3.html" class="hvr-pop"><h4>資料來源</h4></a>
+</li>
+<li><a href="p4.html" class="hvr-pop"><h4>關於我們</h4></a></li><!--Ryao0902-->
+</ul>
+
+</div>
+</div>
+</nav>
+
+
+<div id="tbody" class="row">
+<div class="row"><h2 id="title">&nbsp;&nbsp;請輸入你要租的房子在...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" >使用說明</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" >
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="modal-header">
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+<h4 class="modal-title" id="mySmallModalLabel">房東使用說明</h4>
+</div>
+ <div class="modal-body"><div style="text-align: center;">&nbsp;&nbsp;你只需要把想租的地點位置點在地圖上面就可以囉!!
+ </div></div> 
+ </div>
+</div>
+</div>
+</h2></div>
+<div class="row">
+<div class="col-lg-9">
+
+<div class="h5"></div>
+<ul class="nav nav-tabs">
+<li class="active"><a data-toggle="tab" href="#home">地址搜尋模式</a></li>
+<li><a data-toggle="tab" href="#menu1">座標搜尋模式</a></li>
+</ul>
+<div class="tab-content">
+<div id="home" class="tab-pane fade in active">
+<div id="map2"></div>
+
+</div>
+<div id="menu1" class="tab-pane fade">
+<input id="pac-input" class="controls" type="text" placeholder="Search Box"value="新北市新莊區">
+ <div id="map"></div>
+</div>
+</div>
+
+</div>
+<div class="col-lg-3" id="locat">
+<div class="space_content">
+
+
+
+<a class="btn btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+<h4 id="title">目前位置為...</h4>
+</a>
+
+
+<div class="collapse in" id="collapseExample" aria-expanded="true"> <div id="current" class="well"><h3>座標(Lat,Lng):</h3> <h2> &nbsp; &nbsp;...</h2><h3>地址: &nbsp;</h3><h2> &nbsp; &nbsp;...</h2></div> </div></div>
+
+<form name="form1" action="main12N.html" method="get">
+
+<a type="submit" class="btn btn-primary btn-lg location_rb" onClick="Sent()" >資料送出</a>
+<form>
+
+</div>
+</div>
+
+</div>
+</body>
+</html> 

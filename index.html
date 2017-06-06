@@ -1,0 +1,330 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Address For You</title>
+<font face="微軟正黑體">微軟正黑體字型</font> 
+
+<link rel ="import" href="lib.html">
+<link rel="stylesheet" type="text/css" href="css/project.css">
+<link rel="stylesheet" type="text/css" href="css/color.css">		
+
+<!-- --------------------map script----------------------------- -->
+<script>
+var map;
+var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var labelIndex = 0;
+function initMap() {
+map = new google.maps.Map(document.getElementById('map'), {
+center:{lat:25.033679, lng:121.44096},
+zoom: 14
+});
+google.maps.event.addListener(map, 'click', function(event) {
+addMarker(event.latLng, map);
+});
+
+}
+function addMarker(location, map) {
+// Add the marker at the clicked location, and add the next-available label
+// from the array of alphabetical characters.
+var marker = new google.maps.Marker({
+position: location,
+label: labels[labelIndex++ % labels.length],
+map: map
+});
+}
+</script>
+<script>
+// maincontent control
+$(document).ready(function() {
+$('#fullpage').fullpage({
+anchors:['content1','content2','content3','content4','content5','content6','content7'],
+menu:'#sidebar-wrapper'
+});
+});
+
+</script>
+
+
+
+<style>
+
+.full-width {
+width: 100%;
+}
+@media (max-width: 500px) {
+#map{
+width:100%;
+}
+.h1,h1{
+font-size:18px;
+}
+.li {
+font-size: 30px
+}
+} 
+
+
+</style>
+</head>
+
+<body >
+
+
+
+<!--navbar-fixed-top-->
+<nav class="navbar navbar-default no-margin navbar-fixed-top" id = "mainbar" >
+<div class="container-fluid">
+
+<div class="collapse navbar-collapse" >
+<div class="navbar-header">
+<a href="index.html"><img src="pic/head.png" border="0" height="115px"></a><!--Ryao0824-->
+
+</div>
+
+
+<ul class="nav navbar-nav navbar-right">
+<li><a class="btn hvr-pop "href="index.html"><h4>首頁</h4></a></li>
+<li><a href="p1.html" class=" hvr-pop"><h4>研究動機</h4></a></li>
+<li class="dropdown">
+
+<a href="#" class="dropdown-toggle hvr-pop" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><h4>研究方法<span class="caret"></span></h4></a>
+
+<ul class="dropdown-menu multi-level " role="menu" aria-labelledby="dropdownMenu">
+<li>
+<a href="p2_1.html" ><h4>研究流程</h4></a>
+</li>
+
+<li class="dropdown-submenu"><a tabindex="-1" href="#"><h4>研究理論</h4></a>
+<ul class="dropdown-menu ">
+
+  <li><a tabindex="-1" href="p2_21.html"><h4>空間自相關分析</h4></a></li> <!--Ryao0902-->
+
+ <li><a tabindex="-1" href="p2_22.html"><h4>量化商圈資訊</h4></a></li> <!--Ryao0902-->
+
+ <li><a tabindex="-1" href="p2_23.html"><h4>多領域整合</h4></a></li> <!--Ryao0902-->
+ 
+ <li><a tabindex="-1" href="p2_24.html"><h4>變數權重專一化</h4></a></li> <!--Ryao0902-->
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="p3.html" class="hvr-pop"><h4>資料來源</h4></a>
+</li>
+<li><a href="p4.html" class="hvr-pop"><h4>關於我們</h4></a></li><!--Ryao0902-->
+</ul>
+
+</div>
+</div>
+</nav>
+
+<div id="wrapper"   >
+<!-- Sidebar -->
+<ul id="sidebar-wrapper" class="nav nav-stacked affix" >
+
+<li  data-menuanchor="content1">
+<div class="circle"></div>
+
+  <div id="main1">
+  <a href = "main2N.html">
+  	<img src="pic/store (3).png" height="100" width ="100">
+
+</a>
+
+<a href="main2N.html"><div id="mainC1">我要開店</div> </a>
+</div>
+
+</li>
+
+<li data-menuanchor="content2" >
+<div class="circle"></div>
+
+<div id="main2">
+<a href="main1N.html"> <img src="pic/real-state-seller (2).png" height="110" width="110"/></a>
+<a href="main1N.html"><div id="mainC2">我有店面</div> </a>
+
+</div>
+</li>
+<li data-menuanchor="content3" >
+<div class="circle"></div>
+<div id="main3">
+<a href="p4.html"><img src="pic/mail.png" height="100" width="100"></a>
+<a href="p4.html"><div id="mainC3">聯絡我們</div> </a>
+</div>
+
+</li>
+
+
+
+
+
+ </ul>
+<div id="page-content-wrapper" style ="background-image:url(pic/tepback5.png)">
+<div class="container-fluid xyz">
+<div class="row">
+<div class="col-lg-12">
+<!--  result  main content start --> 
+<div id="fullpage" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+
+
+<div role="tabpanel" class="tab-pane active section" id="section0" data-anchor="content1">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 bg-content">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+<img src="pic/mountain-climb.png">
+</div>
+<div class="col-lg-9"><div class="bfont">用大數據決定你的新店面	
+</div>
+
+<div class="cfont">&nbsp;依照商圈特性發掘行業與店面的<br>&nbsp;最佳組合</div>
+</div></div></div></div></div></div>
+
+
+
+</div>
+<div role="tabpanel" class="tab-pane section" id="section1" data-anchor="content2">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 bg-content">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+<img src="pic/analytics.png">
+</div>
+<div class="col-lg-9">
+	<div class="bfont">&nbsp;札實的視覺饗宴
+</div>
+
+<div class="cfont">&nbsp;以最淺顯易懂的圖表綜觀分析<br>&nbsp;結果</div>
+
+</div></div></div></div></div></div>
+ 
+</div>
+
+<div role="tabpanel" class="tab-pane section" id="section2" data-anchor="content3">
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 bg-content">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+<img src="pic/map-grid-with-placeholder-interface-symbol.png">
+</div>
+<div class="col-lg-9"><div class="bfont">&nbsp;掌握在地脈絡
+</div>
+<div class="cfont">&nbsp;解構錯綜複雜的地緣網絡關係</div></div></div></div></div></div></div>
+
+
+</div>
+
+<div role="tabpanel" class="tab-pane section" id="section2" data-anchor="content4">
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 bg-content">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+<img src="pic/binary-mind (1).png">
+</div>
+<div class="col-lg-9"><div class="bfont">&nbsp;電腦也會選好所在
+</div><div class="cfont">&nbsp;結合人工智慧客觀創造新商機</div></div></div></div></div></div></div>
+</div>
+<div role="tabpanel" class="tab-pane section" id="section2" data-anchor="content5">
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 bg-content">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+<img src="pic/transparent-cube.png">
+</div>
+<div class="col-lg-9"><div class="bfont">&nbsp;資料透明不黑箱
+	<div class="cfont">&nbsp;利用Open Data建構全新平台</div>
+</div></div></div></div></div></div></div>
+
+</div>
+<div role="tabpanel" class="tab-pane section" id="section2" data-anchor="content6">
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 bg-content">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+<img src="pic/linked-databases.png">
+</div>
+<div class="col-lg-9"><div class="bfont">&nbsp;串聯多維度視角
+	<div class="cfont">&nbsp;結合統計、地理、零售管理創造<br>&nbsp;全方位視野</div>
+</div></div></div></div></div></div></div>
+
+</div>
+<div role="tabpanel" class="tab-pane section" id="section2" data-anchor="content7">
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 bg-content">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+
+<img src="pic/mountain-climb.png">
+</div>
+<div class="col-lg-9"><div class="bfont">&nbsp;址因位鄰，只因為您
+<div class="cfont">&nbsp;為您量身訂做的決策支援系統</div></div></div></div></div></div></div></div>
+
+</div>
+
+
+
+
+ </div>
+<!--  result  main content end--> 
+</div></div></div></div>
+<!-- /#page-content-wr
+	apper -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+  
+</html>
